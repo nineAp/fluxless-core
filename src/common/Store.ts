@@ -1,7 +1,7 @@
 import { SliceType } from "../types/slice.types";
 import { Slice } from "./Slice";
 
-export class Store<T extends Record<string, Slice<SliceType>>> {
+export class Store<T extends { [K in keyof T]: Slice<SliceType> }> {
   private slices: T;
 
   constructor(slices: T) {

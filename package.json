@@ -1,10 +1,10 @@
 {
   "name": "fluxless",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Fluxless is a state manager for react for any kind of project. It is based at observable pattern and uses react context for providing the store",
-  "main": "dist/index.cjs.js", 
+  "main": "dist/index.cjs.js",
   "module": "dist/index.js",
-  "types": "dist/index.d.ts", 
+  "types": "dist/index.d.ts",
   "files": [
     "dist"
   ],
@@ -12,7 +12,6 @@
     "build": "tsup",
     "test": "jest"
   },
-  
   "keywords": [],
   "author": "tsup",
   "license": "ISC",

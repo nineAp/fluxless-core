@@ -1,4 +1,4 @@
-function asyncify<T extends (...args: any[]) => any>(fn: T) {
+export function asyncify<T extends (...args: any[]) => any>(fn: T) {
   return async (...args: Parameters<T>) =>
     await new Promise<ReturnType<T>>((resolve, reject) => {
       setImmediate(() => {
@@ -10,5 +10,3 @@ function asyncify<T extends (...args: any[]) => any>(fn: T) {
       });
     });
 }
-
-export default asyncify;

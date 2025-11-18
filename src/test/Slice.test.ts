@@ -6,7 +6,7 @@ describe("Slice with Observer", () => {
     const slice = new Slice<{
       states: { count: number };
       actions: { increment: (n: number) => number };
-    }>({ count: 0 }, { increment: (n: number) => n });
+    }>("test", { count: 0 }, { increment: (n: number) => n });
 
     const state = slice.getState("count");
 
@@ -15,7 +15,11 @@ describe("Slice with Observer", () => {
   });
 
   it("Updates state through Observer when using actions", () => {
-    const slice = new Slice({ count: 0 }, { increment: (n: number) => n });
+    const slice = new Slice(
+      "test",
+      { count: 0 },
+      { increment: (n: number) => n }
+    );
 
     slice.useAction("count", "increment", 5);
 
@@ -24,6 +28,7 @@ describe("Slice with Observer", () => {
 
   it("Handles multiple actions correctly", () => {
     const slice = new Slice(
+      "test",
       { count: 0 },
       {
         increment: (n: number) => n,
@@ -39,7 +44,7 @@ describe("Slice with Observer", () => {
   });
 
   it("Observer reacts to set()", () => {
-    const slice = new Slice({ count: 1 }, { inc: (n: number) => n });
+    const slice = new Slice("test", { count: 1 }, { inc: (n: number) => n });
 
     const state = slice.getState("count");
 

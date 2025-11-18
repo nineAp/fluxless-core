@@ -18,8 +18,10 @@ type WrapObservers<T> = {
 export class Slice<T extends SliceType> {
   private states: WrapObservers<T["states"]>;
   private actions: T["actions"];
+  private name: string;
 
-  constructor(states: T["states"], acitions: T["actions"]) {
+  constructor(name: string, states: T["states"], acitions: T["actions"]) {
+    this.name = name;
     this.states = wrapWithObservers(states);
     this.actions = acitions;
   }

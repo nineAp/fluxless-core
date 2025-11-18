@@ -1,12 +1,21 @@
-export function asyncify<T extends (...args: any[]) => any>(fn: T) {
-  return async (...args: Parameters<T>) =>
-    await new Promise<ReturnType<T>>((resolve, reject) => {
+export function asyncify(
+  target: any,
+  propertyKey: string,
+  descriptor: PropertyDescriptor
+) {
+  const original = descriptor.value;
+
+  if (typeof original !== "function") return;
+
+  descriptor.value = async function (...args: any[]) {
+    return await new Promise((resolve, reject) => {
       setImmediate(() => {
         try {
-          resolve(fn(...args));
+          resolve(original.apply(this, args));
         } catch (err) {
           reject(err);
         }
       });
     });
+  };
 }

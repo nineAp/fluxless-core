@@ -20,10 +20,10 @@ export class Slice<T extends SliceType> {
   private actions: T["actions"];
   readonly name: string;
 
-  constructor(name: string, states: T["states"], acitions: T["actions"]) {
+  constructor(name: string, states: T["states"], actions: T["actions"]) {
     this.name = name;
     this.states = wrapWithObservers(states);
-    this.actions = acitions;
+    this.actions = actions;
   }
 
   getState<K extends keyof T["states"]>(key: K) {

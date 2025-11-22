@@ -1,6 +1,6 @@
 {
   "name": "fluxless",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "Fluxless is a state manager for react for any kind of project. It is based at observable pattern and uses react context for providing the store",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
@@ -12,9 +12,26 @@
     "build": "tsup",
     "test": "jest"
   },
-  "keywords": [],
+  "license": "Apache-2.0",
+  "keywords": [
+    "state",
+    "state-manager",
+    "react",
+    "react-state",
+    "react-store",
+    "flux",
+    "flux-pattern",
+    "fluxless",
+    "observable",
+    "observer",
+    "context",
+    "store",
+    "lightweight",
+    "frontend",
+    "javascript",
+    "typescript"
+  ],
   "author": "tsup",
-  "license": "ISC",
   "devDependencies": {
     "@types/jest": "^30.0.0",
     "jest": "^30.2.0",

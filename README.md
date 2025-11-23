@@ -24,7 +24,7 @@
     const store = new Store({ counter: counterSlice });
 
     const slice = store.getSlice("counter");
-    const current = slice.getState("count:).get();
+    const current = slice.getState("count").get();
     slice.useAction("count", "increment", current, 5);
 
     console.log(slice.getState("count").get()) //will be 5

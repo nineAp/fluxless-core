@@ -8,6 +8,6 @@ export type SliceType<
   actions: A;
 };
 
-export type SliceMap<T extends Record<string, SliceType>> = {
+export type SliceMap<T extends Record<keyof T, SliceType>> = {
   [K in keyof T]: Slice<SliceType<T[K]["states"], T[K]["actions"]>>;
 };

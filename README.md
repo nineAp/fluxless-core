@@ -19,12 +19,13 @@
 ```
     const counterSlice = new Slice(
       { count: 0 },
-      { increment: (n: number) => n }
+      { increment: (state: number, n: number) => state + n }
     );
     const store = new Store({ counter: counterSlice });
 
     const slice = store.getSlice("counter");
-    slice.useAction("count", "increment", 5);
+    const current = slice.getState("count:).get();
+    slice.useAction("count", "increment", current, 5);
 
     console.log(slice.getState("count").get()) //will be 5
 ```
